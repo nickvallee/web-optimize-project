@@ -10,8 +10,14 @@
     <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
     <!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> -->
 
-    <link rel="stylesheet" href="assets/css/style-6969a9b582.css"/>
-    <link rel="stylesheet" href="assets/css/print-d0f1f80020.css" media="print"/>
+    <style type="text/css">
+      .hero,footer{border-top:1px solid #ccc}html{font-size:100%;overflow-y:scroll;-ms-text-size-adjust:100%;-webkit-text-size-adjust:none}body{margin:0;font-size:14px;line-height:1.61;font-weight:400;font-family:Open Sans,sans-serif;color:#333;background:#fff}header p,strong{font-weight:700}a{color:#00f}a:visited{color:#61c}img{border:0;max-width:100%}.container,footer,header{max-width:45em;margin:0 auto}header{padding:0 .5em;color:#c90b0b}header img{border-radius:40px;float:left}header p{font-size:1.5em;padding-left:4em}header p span{font-size:.8em;font-weight:400}.hero{padding:2em;background-color:#f8f8f8;font-size:1.2em;border-bottom:1px solid #ccc}.content{padding:1em}footer{padding:0 .5em}footer span{float:right;font-style:italic}@media only screen and (max-width:480px){body{font-size:12px}header p{padding-left:4.5em}}
+    </style>
+    <link rel="preload" href="assets/css/style-6969a9b582.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/style-6969a9b582.css"></noscript>
+    <link rel="preload" href="assets/css/print-d0f1f80020.css" media="print" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/print-d0f1f80020.css" media="print"></noscript>
+    <script>!function(e){"use strict";var t=function(t,n,r){function o(e){return i.body?e():void setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var l,i=e.document,d=i.createElement("link");if(n)l=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;l=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){l.parentNode.insertBefore(d,n?l:l.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",a),d.onloadcssdefined=f,f(a),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this),function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(e){return!1}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")&&(e.loadCSS(r.href,r),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){e.clearInterval(n)}),e.attachEvent&&e.attachEvent("onload",function(){e.clearInterval(n)})}}}(this);</script>
 
     <script>
       (function(w,g){w['GoogleAnalyticsObject']=g;
@@ -49,5 +55,5 @@
       <p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
     </footer>
 <script src="assets/js/perfmatters-0c28e4a57a.js" async></script>
-  </body>
+  </div></body>
 </html>
