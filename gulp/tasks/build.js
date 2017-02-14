@@ -1,15 +1,15 @@
 var gulp = require('gulp'),
-imagemin = require('gulp-imagemin'),
-del = require('del'),
-usemin = require('gulp-usemin'),
-rev = require('gulp-rev'),
-cssnano = require('gulp-cssnano'),
-uglify = require('gulp-uglify'),
-browserSync = require('browser-sync').create();
+    imagemin = require('gulp-imagemin'),
+    del = require('del'),
+    usemin = require('gulp-usemin'),
+    rev = require('gulp-rev'),
+    cssnano = require('gulp-cssnano'),
+    uglify = require('gulp-uglify'),
+    browserSync = require('browser-sync').create();
 
 
 gulp.task('previewDist', function() {
-        browserSync.init({
+    browserSync.init({
         notify: false,
         server: {
             baseDir: "docs"
@@ -37,7 +37,7 @@ gulp.task('copyGeneralFiles', ['deleteDistFolder'], function() {
         '!./app/assets/views/pizza.html',
         '!./app/temp',
         '!./app/temp/**'
-    ]
+    ];
 
     return gulp.src(pathsToCopy)
         .pipe(gulp.dest("./docs"));
@@ -45,7 +45,7 @@ gulp.task('copyGeneralFiles', ['deleteDistFolder'], function() {
 
 gulp.task('optimizeImages', ['deleteDistFolder'], function() {
 
-/* '!': will exclude particular folders from being in the build */
+    /* '!': will exclude particular folders from being in the build */
 
     return gulp.src(['./app/assets/img/**/*'])
         .pipe(imagemin({
@@ -58,7 +58,7 @@ gulp.task('optimizeImages', ['deleteDistFolder'], function() {
 
 gulp.task('optimizeViewsImages', ['deleteDistFolder'], function() {
 
-/* '!': will exclude particular folders from being in the build */
+    /* '!': will exclude particular folders from being in the build */
 
     return gulp.src(['./app/assets/views/images/**/*'])
         .pipe(imagemin({
@@ -72,15 +72,24 @@ gulp.task('optimizeViewsImages', ['deleteDistFolder'], function() {
 gulp.task('usemin', ['deleteDistFolder', 'scripts', 'mainStyles', 'viewsStyles'], function() {
     return gulp.src("./app/**/*.html")
         .pipe(usemin({
-            css: [function() {return rev()}, function() {return cssnano()}], js: [function() {return rev()}, ,function() {return uglify()}], html: [],
-      jsAttributes : {
-                async : true
-      }
+            css: [function() {
+                return rev()
+            }, function() {
+                return cssnano()
+            }],
+            js: [function() {
+                return rev()
+            }, , function() {
+                return uglify()
+            }],
+            html: [],
+            jsAttributes: {
+                async: true
+            }
         }))
         .pipe(gulp.dest("./docs"));
 });
 
 /* IF YOU ARE ARE UPLOADING TO GITHUB, GET RID OF FORWARD SLASHES*/
 
-gulp.task('build', ['deleteDistFolder', 'copyGeneralFiles', 'optimizeImages','optimizeViewsImages', 'usemin']);
-
+gulp.task('build', ['deleteDistFolder', 'copyGeneralFiles', 'optimizeImages', 'optimizeViewsImages', 'usemin']);
